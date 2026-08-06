@@ -1,0 +1,62 @@
+{
+  "version": 1,
+  "createdAt": "2026-08-06",
+  "sourceFolder": "Blueshield网站设计",
+  "purpose": "Preserve unique reference artwork and the pre-root-migration site.js/CSS before the obsolete folder is removed.",
+  "items": [
+    {
+      "path": "artwork/BlueShield Family.png",
+      "category": "reference-artwork",
+      "bytes": 1776893,
+      "sha256": "BD0DB9493A6C3C1CDBC75AC5008996E9BC8B3B488279501681726E2BF9C27E1A"
+    },
+    {
+      "path": "artwork/ChatGPT Image Aug 4, 2026, 02_51_57 PM.png",
+      "category": "reference-artwork",
+      "bytes": 1901202,
+      "sha256": "EF9D0CE77D225FEF66D33B4E4D2998F9510198C5113A3502AB70506E69E52DEA"
+    },
+    {
+      "path": "artwork/ChatGPT Image Jul 15, 2026, 08_37_30 AM.png",
+      "category": "reference-artwork",
+      "bytes": 1506996,
+      "sha256": "6FDE171F7FF7769AC2895F8F835A9735350A46CDC6D1A29EE037B786F7493F84"
+    },
+    {
+      "path": "artwork/ChatGPT Image Jul 15, 2026, 09_08_16 AM.png",
+      "category": "reference-artwork",
+      "bytes": 903349,
+      "sha256": "92ED6A961691EC4A034C5E48DC1B201DFDC24071A4FEAEB8AB4C7AF0D6CECF68"
+    },
+    {
+      "path": "artwork/ChatGPT Image Jul 15, 2026, 09_53_47 AM.png",
+      "category": "reference-artwork",
+      "bytes": 1930499,
+      "sha256": "41CA7CBAAE011188D700E38DECC1C70C836BD0A898430806F15E7D1F27D46E89"
+    },
+    {
+      "path": "artwork/missions-hero.png",
+      "category": "unused-legacy-artwork",
+      "bytes": 430658,
+      "sha256": "2765F3D0F7928458DEC2A41ED9271B59B6F2672DEC9495D5CE03E0C3E1D9538F"
+    },
+    {
+      "path": "artwork/Picture2.png",
+      "category": "reference-artwork",
+      "bytes": 475103,
+      "sha256": "0207F1D3F2D93DB088157FD36BA5437BDB6D0E5523D1AC6BA2AF5AED884308AE"
+    },
+    {
+      "path": "source/site.js",
+      "category": "pre-migration-source",
+      "bytes": 41655,
+      "sha256": "264AA2E629ACE999FD81A212D17541B9AEC3392C376ABE60478C59E02C71E5BD"
+    },
+    {
+      "path": "source/visual-2026.css",
+      "category": "pre-migration-source",
+      "bytes": 28066,
+      "sha256": "B8FF5508513AB93E4B39A28A949FA638932DBCB5DE425EAADB5DCB1AB674FB9C"
+    }
+  ]
+}
