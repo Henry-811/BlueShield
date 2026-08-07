@@ -48,6 +48,11 @@ test('the root directory is the complete runnable site', () => {
 
 });
 
+test('GitHub Pages declares the production custom domain', () => {
+  const customDomain = fs.readFileSync(path.join(root, 'CNAME'), 'utf8').trim();
+  assert.equal(customDomain, 'blueshieldrobotics.com');
+});
+
 test('the legacy recovery archive matches its manifest', () => {
   const archiveRoot = path.join(root, 'docs', 'references', 'legacy');
   const manifestPath = path.join(archiveRoot, 'archive-manifest.json');
