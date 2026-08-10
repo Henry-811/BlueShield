@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2376" height="1454" viewBox="0 0 2376 1454">
+  <defs>
+    <path id="shield-hex" d="M104 0c7 0 13 2 20 6l72 42c8 5 12 13 12 22v92c0 9-4 18-12 23l-73 42c-12 7-26 7-38 0l-72-42C5 180 0 171 0 162V70c0-9 5-17 13-22L85 6c6-4 13-6 19-6Z"/>
+    <path id="shield-left" d="M100 0c7 0 13 2 19 6l18 11c7 4 10 10 10 18v163c0 8-4 14-10 18l-19 11c-9 6-19 6-28 1l-77-45C5 178 0 170 0 160V72c0-10 5-18 13-23L87 6c4-3 9-5 13-6Z"/>
+    <path id="shield-right" d="M40 0c7 0 13 2 19 6l76 43c8 5 12 13 12 23v89c0 10-4 18-12 23l-76 45c-8 5-17 5-25 1l-24-11c-6-4-10-10-10-18V31c0-8 4-14 10-18L22 6c6-4 12-6 18-6Z"/>
+  </defs>
+  <g fill="#bfbfbf" fill-opacity=".29">
+    <use href="#shield-hex" x="1745" y="-54"/>
+    <use href="#shield-right" x="1961" y="-27"/>
+    <use href="#shield-left" x="1366" y="39"/>
+    <use href="#shield-hex" x="1521" y="70"/>
+    <use href="#shield-left" x="2125" y="95"/>
+    <use href="#shield-hex" x="2279" y="150"/>
+
+    <use href="#shield-hex" x="1366" y="281"/>
+    <use href="#shield-right" x="1582" y="312"/>
+    <use href="#shield-hex" x="2125" y="336"/>
+    <use href="#shield-left" x="987" y="422"/>
+    <use href="#shield-left" x="1744" y="440"/>
+    <use href="#shield-hex" x="1142" y="452"/>
+    <use href="#shield-hex" x="1899" y="471"/>
+
+    <use href="#shield-hex" x="987" y="664"/>
+    <use href="#shield-hex" x="1744" y="682"/>
+    <use href="#shield-right" x="1203" y="695"/>
+    <use href="#shield-right" x="1960" y="713"/>
+    <use href="#shield-left" x="609" y="756"/>
+    <use href="#shield-hex" x="763" y="786"/>
+    <use href="#shield-left" x="1367" y="811"/>
+    <use href="#shield-hex" x="1522" y="842"/>
+    <use href="#shield-left" x="2125" y="869"/>
+    <use href="#shield-hex" x="2280" y="925"/>
+
+    <use href="#shield-hex" x="609" y="998"/>
+    <use href="#shield-right" x="824" y="1029"/>
+    <use href="#shield-hex" x="1367" y="1054"/>
+    <use href="#shield-right" x="1582" y="1085"/>
+    <use href="#shield-left" x="231" y="1090"/>
+    <use href="#shield-hex" x="2125" y="1113"/>
+    <use href="#shield-hex" x="386" y="1120"/>
+    <use href="#shield-left" x="987" y="1157"/>
+    <use href="#shield-hex" x="1141" y="1188"/>
+    <use href="#shield-left" x="1747" y="1204"/>
+    <use href="#shield-hex" x="1901" y="1234"/>
+
+    <use href="#shield-hex" x="231" y="1332"/>
+    <use href="#shield-right" x="446" y="1363"/>
+    <use href="#shield-hex" x="993" y="1399"/>
+  </g>
+</svg>
