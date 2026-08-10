@@ -41,8 +41,8 @@ test('the root directory is the complete runnable site', () => {
     const html = fs.readFileSync(filePath, 'utf8');
     assert.match(html, /<meta charset="utf-8">/);
     assert.match(html, /href="styles\.css"/);
-    assert.match(html, /href="visual-2026\.css"/);
-    assert.match(html, /<script src="site\.js" defer><\/script>/);
+    assert.match(html, /href="visual-2026\.css(?:\?[^\"]+)?"/);
+    assert.match(html, /<script src="site\.js(?:\?[^\"]+)?" defer><\/script>/);
     assert.match(html, new RegExp(`data-page="${pageName}"`));
   }
 
@@ -171,6 +171,6 @@ test('the existing hero motion values are preserved for the deferred animation p
   assert.match(visualCss, /\.type-line:nth-child\(4\)\{animation-delay:\.3s}/);
   assert.match(
     visualCss,
-    /@media\(prefers-reduced-motion:reduce\)\{\.type-line\{opacity:1!important;transform:none!important}}/,
+    /@media\(prefers-reduced-motion:reduce\)\{\.type-line\{opacity:1!important;transform:none!important}\./,
   );
 });

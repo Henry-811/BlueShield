@@ -115,10 +115,63 @@ function setMobileNavOpen(nav,toggle,open){
  toggle.setAttribute('aria-label',open?'Close navigation':'Open navigation');
  if(!open)closeNavItems();
 }
+function initHeroStatementMotion(){
+ const stage=q('.hero-stage'),statement=q('.hero-statement');
+ if(!stage||!statement)return;
+ const motionPreference=matchMedia('(min-width:761px) and (prefers-reduced-motion:no-preference)');
+ let active=false,frameId=null;
+ const render=()=>{
+  frameId=null;
+  if(!active)return;
+  const rect=stage.getBoundingClientRect();
+  const progress=Math.min(1,Math.max(0,-rect.top/Math.max(rect.height,1)));
+  const maxLift=Math.min(320,Math.max(240,rect.height*.42));
+  const lift=Math.round(progress*maxLift*100)/100;
+  statement.style.setProperty('--hero-statement-shift',`${-lift}px`);
+ };
+ const queueRender=()=>{
+  if(frameId!==null)return;
+  frameId=requestAnimationFrame(render);
+ };
+ const setActive=nextActive=>{
+  if(active===nextActive)return;
+  active=nextActive;
+  statement.classList.toggle('is-scroll-active',active);
+  if(active){
+   addEventListener('scroll',queueRender,{passive:true});
+   addEventListener('resize',queueRender);
+   queueRender();
+   return;
+  }
+  removeEventListener('scroll',queueRender);
+  removeEventListener('resize',queueRender);
+  if(frameId!==null){
+   cancelAnimationFrame(frameId);
+   frameId=null;
+  }
+ };
+ const reset=()=>{
+  setActive(false);
+  statement.style.removeProperty('--hero-statement-shift');
+ };
+ const observer=new IntersectionObserver(([entry])=>{
+  setActive(Boolean(entry?.isIntersecting&&motionPreference.matches));
+ });
+ observer.observe(stage);
+ motionPreference.addEventListener('change',()=>{
+  if(!motionPreference.matches){
+   reset();
+   return;
+  }
+  const rect=stage.getBoundingClientRect();
+  setActive(rect.bottom>0&&rect.top<innerHeight);
+ });
+}
 function boot(){
  const page=document.body.dataset.page||'home';
  const render={home,missions:missionsPage,systems:systemsPage,industries:industriesPage,mission:missionDetail,platform:platformDetail,industry:industryDetail,contact:contactPage}[page]||home;
  document.body.innerHTML=render();
+ initHeroStatementMotion();
  const toggle=q('.menu-toggle'),nav=q('.nav-links'),navItems=qa('.nav-item');
  const mobileLayout=matchMedia('(max-width:920px)');
  mobileLayout.addEventListener('change',()=>setMobileNavOpen(nav,toggle,false));
