@@ -144,6 +144,15 @@ test('navigation state and contact request wiring remain accessible', () => {
   assert.match(visualCss, /\.nav-item:not\(\.open\)>\.mega\{opacity:0;visibility:hidden/);
 });
 
+test('the contact page exposes the verified company email', () => {
+  assert.match(siteSource, /<address class="contact-direct">/);
+  assert.match(
+    siteSource,
+    /href="mailto:info@blueshieldrobotics\.com">info@blueshieldrobotics\.com<\/a>/,
+  );
+  assert.doesNotMatch(siteSource, /blurshieldrobotics\.com/);
+});
+
 test('all referenced assets exist in the organised root asset folders', () => {
   for (const folder of ['brand', 'products', 'missions', 'industries']) {
     assert.ok(fs.statSync(path.join(root, 'assets', folder)).isDirectory());
