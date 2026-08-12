@@ -2,6 +2,8 @@
 
 Status: complete
 
+Follow-up: real contact-form delivery is specified separately in [`contact-enquiry-delivery.md`](contact-enquiry-delivery.md). The backend exclusion below describes the scope of this completed navigation baseline, not the follow-up feature.
+
 ## Concept Brief
 
 - Target users: government, enterprise, public-safety, and industrial visitors evaluating Blue Shield Robotics capabilities.

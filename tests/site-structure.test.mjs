@@ -28,7 +28,7 @@ function readSiteData() {
   const context = {};
   vm.runInNewContext(
     `${siteSource.slice(0, dataBoundary)}\n` +
-      'globalThis.__siteData={missions,systems,industries,systemNavigation,contactOptions};',
+      'globalThis.__siteData={missions,systems,industries,systemNavigation,contactOptions,contactSectors};',
     context,
   );
   return JSON.parse(JSON.stringify(context.__siteData));
@@ -151,6 +151,41 @@ test('the contact page exposes the verified company email', () => {
     /href="mailto:info@blueshieldrobotics\.com">info@blueshieldrobotics\.com<\/a>/,
   );
   assert.doesNotMatch(siteSource, /blurshieldrobotics\.com/);
+});
+
+test('the contact page is wired to the secure enquiry coordinator', () => {
+  const contactHtml = fs.readFileSync(path.join(root, 'contact.html'), 'utf8');
+  const contactFormSource = fs.readFileSync(path.join(root, 'contact-form.js'), 'utf8');
+  const contactConfigSource = fs.readFileSync(path.join(root, 'contact-config.js'), 'utf8');
+  const data = readSiteData();
+
+  assert.match(contactHtml, /<script src="contact-config\.js\?v=[^"]+" defer><\/script>/);
+  assert.match(contactHtml, /<script src="contact-form\.js\?v=[^"]+" defer><\/script>/);
+  assert.match(siteSource, /name="requestType"/);
+  assert.match(siteSource, /name="website" tabindex="-1"/);
+  assert.match(siteSource, /id="contactTurnstile"/);
+  assert.match(siteSource, /Do not include classified, export-controlled or security-sensitive operational information/);
+  assert.doesNotMatch(siteSource, /is ready to send once the form is connected/);
+  assert.match(contactFormSource, /Idempotency|submissionId/);
+  assert.match(contactConfigSource, /turnstileAction:'contact_enquiry'/);
+  assert.match(contactFormSource, /action:config\.turnstileAction/);
+  assert.match(contactFormSource, /method:'POST'/);
+  assert.match(contactFormSource, /response\.status!==202\|\|result\.ok!==true/);
+  assert.doesNotMatch(contactConfigSource, /RESEND_API_KEY|TURNSTILE_SECRET_KEY/);
+  assert.deepEqual(
+    data.contactSectors.map((sector) => sector.value),
+    [
+      'defence-national-security',
+      'border-maritime-coastal-security',
+      'public-safety-emergency-services',
+      'surveying-geospatial-digital-twins',
+      'utilities-critical-infrastructure',
+      'mining-resources',
+      'construction-major-projects',
+      'agriculture-forestry-environment',
+      'other',
+    ],
+  );
 });
 
 test('all referenced assets exist in the organised root asset folders', () => {
