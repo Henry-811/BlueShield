@@ -36,7 +36,7 @@ Status: local implementation and automated verification complete; external accou
 1. Only `POST /contact` may create an enquiry; all other paths and unsupported methods are rejected.
 2. The Worker accepts requests only from configured production origins and never treats CORS as the sole anti-abuse control.
 3. Request type and sector must match documented enumerations; all strings are trimmed and length-bounded at the server boundary.
-4. Name and email are required. Organisation and mission context are optional in the MVP.
+4. Enquiry type, name, email, and sector are required and marked consistently in the form. Organisation and mission context are optional in the MVP.
 5. The destination, sender, subject prefix, Resend endpoint, and Turnstile endpoint are server configuration. Visitors cannot control mail headers or recipients.
 6. A valid Turnstile token and an allowed hostname/action are required before email delivery.
 7. The platform rate limiter is evaluated for each accepted-origin submission attempt. No in-memory rate counter is used.
@@ -46,6 +46,7 @@ Status: local implementation and automated verification complete; external accou
 11. Neither browser nor Worker logs contain names, email addresses, organisations, mission text, Turnstile tokens, or provider secrets.
 12. The public form clearly warns visitors not to submit classified or sensitive operational information and retains the direct email fallback.
 13. The browser saves only the six ordinary enquiry fields in current-tab session storage, restores them after a refresh, and clears the draft after delivery acceptance. It never persists the honeypot, Turnstile token, submission ID, button state, or status message.
+14. The Turnstile widget uses English visitor-facing copy to remain consistent with the English-language website, independent of the browser locale.
 
 ### User flow
 

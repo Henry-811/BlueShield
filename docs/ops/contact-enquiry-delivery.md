@@ -79,6 +79,8 @@ globalThis.BLUE_SHIELD_CONTACT_CONFIG=Object.freeze({
 
 The site deliberately leaves the send button unavailable while either public value is blank. The direct email link remains usable.
 
+The browser coordinator renders Turnstile explicitly with `language: 'en'` so the security widget remains English on the English-language site regardless of the visitor's browser locale.
+
 Commit, push, and GitHub Pages publication are separate approval steps. Do not deploy the static change until the Worker and Turnstile configuration are ready.
 
 ## Local verification

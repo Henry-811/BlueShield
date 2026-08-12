@@ -280,6 +280,7 @@
    widgetId=turnstileApi.render(challenge,{
     sitekey:config.turnstileSiteKey,
     action:config.turnstileAction,
+    language:'en',
     theme:'dark',
     callback:token=>{
      turnstileToken=token;

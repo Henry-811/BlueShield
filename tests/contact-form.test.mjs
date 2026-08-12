@@ -147,6 +147,7 @@ test('the production contact coordinator submits the documented payload and show
  assert.equal(controller.configured,true);
  assert.equal(challenge.options().sitekey,'public-site-key');
  assert.equal(challenge.options().action,'contact_enquiry');
+ assert.equal(challenge.options().language,'en');
  assert.equal(harness.button.disabled,false);
 
  const submitPromise=controller.submit({preventDefault:()=>{}});

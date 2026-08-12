@@ -140,7 +140,7 @@ test('site pages load the current motion assets without stale browser cache',()=
  const pages=['index.html','missions.html','mission.html','systems.html','platform.html','industries.html','industry.html','contact.html'];
  for(const page of pages){
   const html=fs.readFileSync(path.join(root,page),'utf8');
-  assert.match(html,/visual-2026\.css\?v=20260811-contact-delivery-1/,`${page} should version the motion stylesheet`);
-  assert.match(html,/site\.js\?v=20260811-contact-delivery-1/,`${page} should version the motion script`);
+  assert.match(html,/visual-2026\.css\?v=20260812-required-fields-1/,`${page} should version the motion stylesheet`);
+  assert.match(html,/site\.js\?v=20260812-required-fields-1/,`${page} should version the motion script`);
  }
 });

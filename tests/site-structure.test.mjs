@@ -162,6 +162,16 @@ test('the contact page is wired to the secure enquiry coordinator', () => {
   assert.match(contactHtml, /<script src="contact-config\.js\?v=[^"]+" defer><\/script>/);
   assert.match(contactHtml, /<script src="contact-form\.js\?v=[^"]+" defer><\/script>/);
   assert.match(siteSource, /name="requestType"/);
+  assert.doesNotMatch(siteSource, /contact-required-note|Required fields/);
+  assert.match(siteSource, /<label for="requestType">Enquiry type <span class="field-required" aria-hidden="true">\*<\/span><\/label><select id="requestType"[^>]* required>/);
+  assert.match(siteSource, /<label for="name">Name <span class="field-required" aria-hidden="true">\*<\/span><\/label><input id="name"[^>]* required>/);
+  assert.match(siteSource, /<label for="email">Email <span class="field-required" aria-hidden="true">\*<\/span><\/label><input id="email"[^>]* required>/);
+  assert.match(siteSource, /<label for="sector">Sector <span class="field-required" aria-hidden="true">\*<\/span><\/label><select id="sector"[^>]* required>/);
+  assert.match(siteSource, /<label for="org">Organisation<\/label><input id="org"[^>]*><\/div>/);
+  assert.match(siteSource, /<label for="mission">Mission requirement<\/label><textarea id="mission"[^>]*><\/textarea>/);
+  assert.equal((siteSource.match(/class="field-required"/g) || []).length, 4);
+  assert.doesNotMatch(siteSource, /id="org"[^>]*\srequired(?=[ >])/);
+  assert.doesNotMatch(siteSource, /id="mission"[^>]*\srequired(?=[ >])/);
   assert.match(siteSource, /name="website" tabindex="-1"/);
   assert.match(siteSource, /id="contactTurnstile"/);
   assert.match(siteSource, /Do not include classified, export-controlled or security-sensitive operational information/);
